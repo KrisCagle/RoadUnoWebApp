@@ -40,10 +40,4 @@ This project powers the RoadUno web experience. Depending on the export, it may 
 
 If this project was originally built with a framework or hosted builder, the source structure may differ from the files included here.
 
-## Getting Started
 
-To view the project locally:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YOURUSERNAME/roaduno.git
