@@ -1,43 +1,106 @@
-# RoadUno
+# 🎸 RoadUno
 
-RoadUno is a web app built to help independent artists and music professionals plan smarter tours, discover venues, and simplify the routing process.
+**Tour planning and venue discovery for independent artists.**
 
-This repository contains the exported website files for the live RoadUno site.
+RoadUno helps musicians and their managers plan smarter tours — mapping routes, finding venues, tracking show history, and running the numbers — all in one place.
 
-## About
+🌐 **Live site:** [www.roaduno.com](https://www.roaduno.com)
 
-RoadUno was created to make tour planning easier for artists who need a faster and more practical way to organize shows, map routes, and identify venues that match their size and goals.
-
-The platform is designed with independent musicians in mind and focuses on reducing the time and stress that comes with building a tour.
+---
 
 ## Features
 
-- Tour planning support
-- Venue discovery
-- Route-focused artist tools
-- Music industry workflow support
-- Web-based interface for easy access
+- **Tour Routing Planner** — Build and optimize multi-city tour routes
+- **Venue Discovery** — Browse and save venue leads that fit your draw size and goals
+- **Manager Dashboard** — Separate view for managers to oversee multiple artists, track analytics, and review venue performance
+- **Break-Even Calculator** — Know exactly what a show needs to make financial sense
+- **AI Tour Assistant** — AI-powered recommendations for routing and show planning
+- **Show History** — Track past performances and activity over time
+- **Artist Profiles** — Public-facing profile pages for artists
+- **Auth & Subscriptions** — Secure login via Supabase with subscription-gated feature access
 
-## Live Site
-
-Visit the live site here:
-
-[www.roaduno.com](https://www.roaduno.com)
-
-## Repository Purpose
-
-This repository is being used to store and version the exported website files for RoadUno.
-
-Depending on how the site was exported, this repo may contain production-ready web files rather than the original development source code.
+---
 
 ## Tech Stack
 
-This project powers the RoadUno web experience. Depending on the export, it may include technologies such as:
+| Layer | Technology |
+|---|---|
+| Frontend | React (JSX) |
+| UI Components | Custom component library (shadcn-style) |
+| Backend / Auth / DB | Supabase |
+| AI Integration | AI client proxy (Claude / OpenAI) |
+| Ads | Google AdSense |
+| Routing | React Router |
 
-- HTML
-- CSS
-- JavaScript
+---
 
-If this project was originally built with a framework or hosted builder, the source structure may differ from the files included here.
+## Project Structure
+
+```
+/
+├── TourRoutingPlannerPage.jsx     # Core tour route builder
+├── VenueLeadsPage.jsx             # Venue discovery and lead tracking
+├── ManagerDashboardPage.jsx       # Manager multi-artist overview
+├── ManagerVenueAnalyticsPage.jsx  # Venue performance analytics
+├── BreakEvenCalculatorPage.jsx    # Show financial calculator
+├── TourAssistantPage.jsx          # AI-powered tour assistant (v1)
+├── TourAssistantV2Page.jsx        # AI-powered tour assistant (v2)
+├── ArtistProfilePage.jsx          # Public artist profile
+├── DashboardPage.jsx              # Artist dashboard
+├── ShowHistoryPage.jsx            # Past shows and activity log
+├── AuthModal.jsx                  # Login / signup flow
+├── customSupabaseClient.js        # Supabase configuration
+├── aiClient.js / aiProxy.js       # AI integration layer
+├── featureGates.js                # Subscription feature gating
+└── activityLogger.js              # User activity tracking
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- A Supabase project (for auth and database)
+
+### Installation
+
+```bash
+git clone https://github.com/KrisCagle/RoadUnoWebApp.git
+cd RoadUnoWebApp
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the root:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_AI_API_KEY=your_ai_api_key
+```
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+---
+
+## About
+
+RoadUno was built by [Kristofer Cagle](https://github.com/KrisCagle), an MTSU grad and Nashville-based developer, to solve a real problem in the independent music industry: tour planning is fragmented, expensive, and inaccessible for artists without a team.
+
+The goal is to give independent artists the same planning tools that major-label artists take for granted.
+
+---
+
+## License
+
+This project is proprietary. All rights reserved.
+
 
 
