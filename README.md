@@ -1,236 +1,114 @@
-# SoundRoster
+# 🎸 RoadUno
 
-SoundRoster is a music management web app for tracking artists, genres, and tour dates in one place.
+**Tour planning and venue discovery for independent artists.**
 
-## Overview
+RoadUno helps musicians and their managers plan smarter tours: mapping routes, finding venues, tracking show history, and running the numbers, all in one place.
 
-This project is built for music managers who need a clean way to manage a roster of artists, browse profiles, and keep basic artist information organized.
+🌐 **Live site:** [www.roaduno.com](https://www.roaduno.com)
 
-The current version includes:
+---
 
-- User registration and login
-- Persistent login state with local storage
-- A branded landing page
-- A navigation bar with logo and account menu
-- A **My Roster** page connected to a JSON Server database
-- Artist photo cards with artist names, origin city, and genre tags
-- Artist-to-genre relationships using a join table
-- Routing for future pages like **Add Artist**, **Artist Profile**, and **Browse All**
+## Features
+
+- **Tour Routing Planner**: Build and optimize multi city tour routes
+- **Venue Discovery**: Browse and save venue leads that fit your draw size and goals
+- **Manager Dashboard**: Separate view for managers to oversee multiple artists, track analytics, and review venue performance
+- **Break Even Calculator**: Know exactly what a show needs to make financial sense
+- **Merch Profit Calculator**: Estimate merch margins and break even points
+- **AI Tour Assistant**: AI powered recommendations for routing and show planning
+- **Show History**: Track past performances and activity over time
+- **Artist Profiles**: Public facing profile pages for artists
+- **Route Templates**: Save and reuse common touring routes
+- **Auth & Subscriptions**: Secure login via Supabase with subscription gated feature access
 
 ---
 
 ## Tech Stack
 
-- **React**
-- **React Router**
-- **Tailwind CSS**
-- **JSON Server**
-- **JavaScript**
-
----
-
-## Current Features
-
-### Authentication
-Users can:
-- Register for an account
-- Log in with email and password
-- Stay logged in using local storage
-- Log out from the navigation dropdown
-
-### Navigation
-The app currently includes:
-- **Home**
-- **My Roster**
-- **Browse All**
-- **Artist Profile**
-- **Add Artist**
-- **Edit Artist**
-- **Add Tour Date**
-
-### My Roster
-The **My Roster** page:
-- Pulls artist data from the database
-- Filters artists by the logged-in user
-- Displays artist photo cards
-- Shows artist name
-- Shows artist origin city
-- Shows genre bubbles based on `artistGenres` + `genres`
-
----
-
-## Database Structure
-
-The project currently uses the following resources in `database.json`:
-
-- `users`
-- `artists`
-- `tourDates`
-- `genres`
-- `artistGenres`
-
-### Relationships
-
-- A **user** owns many **artists**
-- An **artist** has many **tourDates**
-- An **artist** can have many **genres**
-- A **genre** can belong to many **artists**
-- `artistGenres` acts as the join table between artists and genres
+| Layer | Technology |
+|---|---|
+| Frontend | React (JSX) + Vite |
+| UI Components | shadcn style component library |
+| Backend / Auth / DB | Supabase |
+| AI Integration | AI proxy via Google Cloud Functions |
+| Maps / Places | Google Maps JavaScript API, Places API, Geocoding API |
+| Ads | Google AdSense |
+| Routing | React Router |
 
 ---
 
 ## Project Structure
 
-```txt
+```
 src/
-  components/
-    NavBar.jsx
-  pages/
-    Home.jsx
-    Login.jsx
-    Register.jsx
-    MyRoster.jsx
-    BrowseAll.jsx
-    ArtistProfile.jsx
-    AddArtist.jsx
-    EditArtist.jsx
-    AddTourDate.jsx
-  services/
-    authService.js
-    artistService.js
-public/
-  images/
-    artists/
-database.json
+├── pages/                 # Route level page components
+│   ├── HomePage.jsx
+│   ├── TourRoutingPlannerPage.jsx     # Core tour route builder
+│   ├── VenueLeadsPage.jsx             # Venue discovery and lead tracking
+│   ├── TourAssistantPage.jsx          # AI powered tour assistant (v1)
+│   ├── TourAssistantV2Page.jsx        # AI powered tour assistant (v2)
+│   ├── ManagerDashboardPage.jsx       # Manager multi artist overview
+│   ├── ManagerVenueAnalyticsPage.jsx  # Venue performance analytics
+│   ├── BreakEvenCalculatorPage.jsx    # Show financial calculator
+│   ├── MerchProfitCalculatorPage.jsx  # Merch margin calculator
+│   ├── ArtistProfilePage.jsx          # Public artist profile
+│   ├── DashboardPage.jsx              # Artist dashboard
+│   ├── ShowHistoryPage.jsx            # Past shows and activity log
+│   └── ...                            # Auth, billing, pricing, and settings pages
+├── components/             # Shared UI components
+│   └── ui/                 # shadcn style primitives
+├── contexts/                # React context providers (auth, etc.)
+├── services/                # External API integrations (Google Places, AdSense, AI client)
+├── config/                   # AI proxy and Google API configuration
+├── hooks/                     # Shared React hooks (subscriptions, tour quota, etc.)
+├── lib/                        # Supabase client, feature gates, activity logging
+├── utils/                       # Shared helper functions
+└── data/                         # Static resource content
 ```
 
 ---
 
-## Getting Started
+## Setup
 
-### 1. Install dependencies
+### Prerequisites
+
+- Node.js 18+
+- A Supabase project (for auth and database)
+- A Google Cloud API key (for maps and places features)
+
+### Installation
 
 ```bash
+git clone https://github.com/KrisCagle/RoadUnoWebApp.git
+cd RoadUnoWebApp
 npm install
 ```
 
-### 2. Start JSON Server
+### Environment Variables
 
-Make sure your database is running on port `8088`:
+Copy `.env.example` to `.env.local` and fill in your values:
 
-```bash
-json-server -p 8088 -w database.json
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_GOOGLE_API_KEY=your_google_api_key
+VITE_AI_PROXY_ENDPOINT=your_ai_proxy_endpoint
 ```
 
-### 3. Start the React app
+## Claude Skills
 
-If this project is using Create React App:
-
-```bash
-npm start
-```
-
-The frontend should run on:
-
-```txt
-http://localhost:3000
-```
+This repo includes custom Claude Code skills and subagents under `.claude/`, used during development for tour routing feasibility checks and venue outreach drafting. See `.claude/skills/` and `.claude/agents/` for details.
 
 ---
 
-## Image Setup
+## About
 
-Artist images are stored in:
+RoadUno was built by [Kristofer Cagle](https://github.com/KrisCagle), a Nashville based developer, to solve a real problem in the independent music industry: tour planning is fragmented, expensive, and inaccessible for artists without a team.
 
-```txt
-public/images/artists/
-```
-
-Example:
-
-```txt
-public/images/artists/NovaReyes.jpg
-```
-
-Then reference them in `database.json` like this:
-
-```json
-"photoUrl": "/images/artists/NovaReyes.jpg"
-```
+The goal is to give independent artists the same planning tools that major label artists take for granted.
 
 ---
 
-## Example Artist Record
+## License
 
-```json
-{
-  "id": "1",
-  "name": "Nova Reyes",
-  "bio": "Indie-R&B singer-songwriter from Nashville.",
-  "photoUrl": "/images/artists/NovaReyes.jpg",
-  "originCity": "Nashville, TN",
-  "activeSince": 2019,
-  "userId": "Q8zjwEq1Ul8"
-}
-```
-
----
-
-## Example Genre Relationship
-
-```json
-{
-  "id": "1",
-  "artistId": "1",
-  "genreId": "1"
-}
-```
-
----
-
-## Routes
-
-Current routes include:
-
-- `/` — Home
-- `/login` — Login
-- `/register` — Register
-- `/roster` — My Roster
-- `/artists` — Browse All
-- `/artists/:artistId` — Artist Profile
-- `/artists/new` — Add Artist
-- `/artists/:artistId/edit` — Edit Artist
-- `/artists/:artistId/tourdates/new` — Add Tour Date
-
----
-
-## Styling Notes
-
-The UI uses Tailwind utility classes for:
-- Layout and spacing
-- Borders and rounded cards
-- Shadows and hover effects
-- Glass-style card backgrounds
-- Responsive grid layouts
-
----
-
-## Roadmap
-
-Planned next steps include:
-
-- Build the **Add Artist** page
-- Build the **Browse All** page fully
-- Build the **Artist Profile** page
-- Add edit/delete functionality for artists
-- Add tour date management
-- Add better validation and duplicate email checks
-- Improve image uploads
-- Improve manager-specific features
-
----
-
-## Author
-
-Built by Kris Cagle.
-
+This project is proprietary. All rights reserved.
