@@ -1,4 +1,4 @@
-# 🎸 RoadUno
+# RoadUno
 
 **Tour planning and venue discovery for independent artists.**
 
