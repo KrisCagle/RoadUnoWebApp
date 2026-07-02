@@ -16,6 +16,11 @@ module.exports = {
     		}
     	},
     	extend: {
+    		fontFamily: {
+    			sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+    			display: ['"Barlow Condensed"', 'sans-serif'],
+    			mono: ['"JetBrains Mono"', 'monospace'],
+    		},
     		colors: {
     			border: 'hsl(var(--border))',
     			input: 'hsl(var(--input))',
@@ -56,7 +61,36 @@ module.exports = {
     				'3': 'hsl(var(--chart-3))',
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
-    			}
+    			},
+    			/* RoadUno redesign tokens — grounded in touring/routing, not generic SaaS defaults */
+    			asphalt: {
+    				DEFAULT: '#16151A',
+    				raised: '#1C2025',
+    				elevated: '#232830',
+    			},
+    			marquee: {
+    				DEFAULT: '#E8A33D',
+    				hover: '#F2B85C',
+    				muted: 'rgba(232,163,61,0.15)',
+    			},
+    			routeline: {
+    				DEFAULT: '#3B8C6E',
+    				hover: '#4FA383',
+    				muted: 'rgba(59,140,110,0.15)',
+    			},
+    			taillight: {
+    				DEFAULT: '#C4432E',
+    				hover: '#D65840',
+    				muted: 'rgba(196,67,46,0.15)',
+    			},
+    			paper: {
+    				DEFAULT: '#EDE8DD',
+    				muted: '#9BA1AA',
+    			},
+    			steel: {
+    				DEFAULT: '#33393F',
+    				light: '#2C3138',
+    			},
     		},
     		borderRadius: {
     			lg: 'var(--radius)',

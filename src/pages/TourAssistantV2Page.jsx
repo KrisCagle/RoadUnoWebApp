@@ -513,36 +513,36 @@ const TourAssistantV2Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-white font-sans selection:bg-orange-500/30">
+    <div className="min-h-screen bg-asphalt text-paper font-sans selection:bg-marquee/30">
       <Helmet><title>AI Tour Assistant V2 | RoadUno</title></Helmet>
       <Navigation />
       <main className="relative overflow-hidden pt-24 pb-20 min-h-[calc(100vh-80px)]">
         
         {/* Absolute Glow Background Layers */}
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(800px_circle_at_50%_0%,rgba(236,72,153,0.14),transparent_60%),radial-gradient(900px_circle_at_20%_30%,rgba(249,115,22,0.10),transparent_55%)]" />
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-neutral-950/0 via-neutral-950/10 to-neutral-950/40" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(800px_circle_at_50%_0%,rgba(232,163,61,0.08),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-asphalt/0 via-asphalt/10 to-asphalt/40" />
 
         <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Tour Assistant</h1>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">Plan your route, find venues, and visualize your tour on the map instantly.</p>
-            <div className="mt-4 inline-flex items-center gap-2 bg-neutral-800 px-4 py-2 rounded-full border border-neutral-700">
-               <Zap className={`h-4 w-4 text-orange-400`} />
-               <span className="text-sm font-medium text-neutral-300">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Tour Assistant</h1>
+            <p className="text-xl text-paper-muted max-w-2xl mx-auto">Plan your route, find venues, and visualize your tour on the map instantly.</p>
+            <div className="mt-4 inline-flex items-center gap-2 bg-asphalt-raised px-4 py-2 rounded-full border border-steel">
+               <Zap className={`h-4 w-4 text-marquee`} />
+               <span className="text-sm font-medium text-paper-muted">
                   {user ? 'Unlimited Prompts' : `${remaining} free prompt${remaining !== 1 ? 's' : ''} remaining`}
                </span>
             </div>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[460px_1fr] gap-6">
-            <div className="ru-card p-6 lg:sticky lg:top-24 self-start bg-gradient-to-b from-white/5 to-transparent ring-1 ring-white/5 hover:ring-orange-500/15 transition-all duration-300">
+            <div className="ru-card p-6 lg:sticky lg:top-24 self-start bg-gradient-to-b from-white/5 to-transparent ring-1 ring-white/5 hover:ring-marquee/15 transition-all duration-300">
               <div className="space-y-6">
                 {user && templates.length > 0 && (
-                  <div className="bg-neutral-900/50 p-3 rounded-lg border border-neutral-700">
-                    <Label className="text-xs text-orange-400 font-bold mb-1 flex items-center gap-1"><LayoutTemplate className="h-3 w-3" /> LOAD FROM TEMPLATE</Label>
+                  <div className="bg-asphalt/50 p-3 rounded-lg border border-steel">
+                    <Label className="text-xs text-marquee font-bold mb-1 flex items-center gap-1"><LayoutTemplate className="h-3 w-3" /> LOAD FROM TEMPLATE</Label>
                     <Select value={selectedTemplate} onValueChange={handleTemplateSelect}>
-                      <SelectTrigger className="bg-neutral-800 border-neutral-700 h-8 text-sm"><SelectValue placeholder="Select a template" /></SelectTrigger>
-                      <SelectContent className="bg-neutral-900 border-neutral-700 text-white">
+                      <SelectTrigger className="bg-asphalt-elevated border-steel h-8 text-sm"><SelectValue placeholder="Select a template" /></SelectTrigger>
+                      <SelectContent className="bg-asphalt-raised border-steel text-paper">
                         <SelectItem value="none">None</SelectItem>
                         {templates.map(t => <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>)}
                       </SelectContent>
@@ -552,20 +552,20 @@ const TourAssistantV2Page = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label className="text-neutral-200 font-semibold">Artist Name</Label>
+                    <Label className="text-paper font-semibold">Artist Name</Label>
                     <div className="relative">
-                      <Music className="absolute left-3 top-3 h-4 w-4 text-neutral-500" />
-                      <Input name="artistName" value={formData.artistName} onChange={handleInputChange} className="pl-9 bg-neutral-900/50 border-neutral-700 text-white" placeholder="Band Name" />
+                      <Music className="absolute left-3 top-3 h-4 w-4 text-paper-muted" />
+                      <Input name="artistName" value={formData.artistName} onChange={handleInputChange} className="pl-9 bg-asphalt/50 border-steel text-paper" placeholder="Band Name" />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-neutral-200 font-semibold">Genre</Label>
-                    <Input name="genre" value={formData.genre} onChange={handleInputChange} className="bg-neutral-900/50 border-neutral-700 text-white" placeholder="e.g. Indie Rock" />
+                    <Label className="text-paper font-semibold">Genre</Label>
+                    <Input name="genre" value={formData.genre} onChange={handleInputChange} className="bg-asphalt/50 border-steel text-paper" placeholder="e.g. Indie Rock" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-neutral-200 font-semibold">Venue Types</Label>
+                  <Label className="text-paper font-semibold">Venue Types</Label>
                   <div className="flex flex-wrap gap-2">
                     {VENUE_TYPES.map(type => (
                       <button 
@@ -573,8 +573,8 @@ const TourAssistantV2Page = () => {
                         onClick={() => handleVenueTypeClick(type)} 
                         className={`px-3 py-1.5 rounded-full text-xs font-medium border cursor-pointer transition-all duration-200 ${
                           selectedVenueTypes.includes(type) 
-                            ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white border-orange-400 shadow-lg' 
-                            : 'border-neutral-600 bg-neutral-800/30 text-neutral-300 hover:border-orange-500/60 hover:bg-neutral-700/40 hover:-translate-y-[2px] hover:shadow-md'
+                            ? 'bg-gradient-to-r from-marquee to-routeline text-asphalt border-marquee shadow-lg font-semibold' 
+                            : 'border-steel bg-asphalt-raised/30 text-paper-muted hover:border-marquee/60 hover:bg-asphalt-elevated/40 hover:-translate-y-[2px] hover:shadow-md'
                         }`}
                       >
                         {type}
@@ -585,38 +585,38 @@ const TourAssistantV2Page = () => {
 
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Label className="text-neutral-200 font-semibold">Target Cities</Label>
-                    <span className="text-gray-400 text-xs">(separate cities by comma)</span>
+                    <Label className="text-paper font-semibold">Target Cities</Label>
+                    <span className="text-paper-muted text-xs">(separate cities by comma)</span>
                   </div>
                   <div className="relative">
-                    <MapIcon className="absolute left-3 top-3 h-4 w-4 text-neutral-500" />
-                    <Textarea name="cities" value={formData.cities} onChange={handleInputChange} className="pl-9 min-h-[80px] bg-neutral-900/50 border-neutral-700 text-white" placeholder="Austin, Denver..." />
+                    <MapIcon className="absolute left-3 top-3 h-4 w-4 text-paper-muted" />
+                    <Textarea name="cities" value={formData.cities} onChange={handleInputChange} className="pl-9 min-h-[80px] bg-asphalt/50 border-steel text-paper" placeholder="Austin, Denver..." />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label className="text-neutral-200 font-semibold">Dates</Label>
+                    <Label className="text-paper font-semibold">Dates</Label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-3 h-4 w-4 text-neutral-500" />
-                      <Input name="tourDates" value={formData.tourDates} onChange={handleInputChange} className="pl-9 bg-neutral-900/50 border-neutral-700 text-white" placeholder="Fall 2024" />
+                      <Calendar className="absolute left-3 top-3 h-4 w-4 text-paper-muted" />
+                      <Input name="tourDates" value={formData.tourDates} onChange={handleInputChange} className="pl-9 bg-asphalt/50 border-steel text-paper" placeholder="Fall 2024" />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-neutral-200 font-semibold">Budget</Label>
+                    <Label className="text-paper font-semibold">Budget</Label>
                     <div className="relative">
-                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-neutral-500" />
-                      <Input name="budget" value={formData.budget} onChange={handleInputChange} className="pl-9 bg-neutral-900/50 border-neutral-700 text-white" placeholder="$5000" />
+                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-paper-muted" />
+                      <Input name="budget" value={formData.budget} onChange={handleInputChange} className="pl-9 bg-asphalt/50 border-steel text-paper" placeholder="$5000" />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Label className="text-neutral-200 font-semibold">Extra Info</Label>
-                    <span className="text-gray-400 text-xs">(venue cap, or specific preferences)</span>
+                    <Label className="text-paper font-semibold">Extra Info</Label>
+                    <span className="text-paper-muted text-xs">(venue cap, or specific preferences)</span>
                   </div>
-                  <Textarea name="additionalInfo" value={formData.additionalInfo} onChange={handleInputChange} className="bg-neutral-900/50 border-neutral-700 h-20 text-white" placeholder="Preferences..." />
+                  <Textarea name="additionalInfo" value={formData.additionalInfo} onChange={handleInputChange} className="bg-asphalt/50 border-steel h-20 text-paper" placeholder="Preferences..." />
                 </div>
 
                 <Button 
@@ -624,27 +624,27 @@ const TourAssistantV2Page = () => {
                   disabled={isGenerating || !formData.artistName || !formData.cities} 
                   className={`w-full font-bold py-6 text-lg transition-all duration-200 hover:brightness-110 hover:-translate-y-[1px] hover:shadow-lg active:translate-y-0 active:brightness-95 disabled:opacity-75 disabled:cursor-not-allowed ${
                     !canGenerate && !user 
-                      ? 'bg-neutral-700 hover:bg-neutral-700 opacity-80' 
-                      : 'bg-orange-600 hover:bg-orange-700 text-white'
+                      ? 'bg-steel hover:bg-steel opacity-80 text-paper-muted' 
+                      : 'bg-marquee hover:bg-marquee-hover text-asphalt'
                   }`}
                 >
                   {isGenerating ? <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Planning...</> : !canGenerate && !user ? <><Lock className="mr-2 h-5 w-5" /> Limit Reached</> : <><RotateCw className="mr-2 h-5 w-5" /> Generate Route</>}
                 </Button>
                 
                 {!user && (
-                  <motion.div key={remaining} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center text-sm text-neutral-500 mt-2">
-                    You have <span className="text-orange-400 font-bold">{remaining}</span> free prompts remaining.
+                  <motion.div key={remaining} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center text-sm text-paper-muted mt-2">
+                    You have <span className="text-marquee font-bold">{remaining}</span> free prompts remaining.
                   </motion.div>
                 )}
               </div>
             </div>
 
             <div className="space-y-6">
-              <div className="ru-card h-[360px] md:h-[420px] relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent ring-1 ring-white/5 hover:ring-orange-500/15 transition-all duration-300">
-                <div ref={mapRef} className="w-full h-full bg-neutral-900" />
+              <div className="ru-card h-[360px] md:h-[420px] relative overflow-hidden bg-gradient-to-b from-white/5 to-transparent ring-1 ring-white/5 hover:ring-marquee/15 transition-all duration-300">
+                <div ref={mapRef} className="w-full h-full bg-asphalt" />
                 {!GOOGLE_API_KEY && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/60 text-white z-10 flex-col gap-2 p-4 text-center">
-                    <span className="font-bold text-red-400">Map Configuration Missing</span>
+                  <div className="absolute inset-0 flex items-center justify-center bg-asphalt/80 text-paper z-10 flex-col gap-2 p-4 text-center">
+                    <span className="font-bold text-taillight">Map Configuration Missing</span>
                     <span className="text-sm">Please set VITE_GOOGLE_API_KEY in your .env.local file.</span>
                   </div>
                 )}
@@ -652,7 +652,7 @@ const TourAssistantV2Page = () => {
 
               {routePlan && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-2">
-                  <h3 className="text-xl font-bold text-white mb-4">
+                  <h3 className="text-xl font-bold text-paper mb-4">
                     Venue Leads ({routePlan.venues?.length || 0})
                   </h3>
                   <div className="flex flex-col gap-4">

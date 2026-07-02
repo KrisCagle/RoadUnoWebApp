@@ -43,7 +43,7 @@ const HomePage = () => {
     content: 'The budget clustering saved me hundreds on gas. This is a game-changer for small tours.',
     rating: 5
   }];
-  
+
   return (
     <>
       <Helmet>
@@ -51,12 +51,12 @@ const HomePage = () => {
         <meta name="description" content="RoadUno is an AI tour assistant for independent musicians. Get smart tour routes, venue leads, booking contacts, and practical touring resources, all designed to help you tour smarter and waste less." />
       </Helmet>
 
-      <div className="min-h-screen bg-slate-950">
+      <div className="min-h-screen bg-asphalt">
         <Navigation />
 
         <section className="relative overflow-hidden pt-32 pb-28 px-4">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-pink-500/10 to-purple-500/10" />
-          
+          <div className="absolute inset-0 bg-gradient-to-br from-marquee/10 via-routeline/10 to-transparent" />
+
           <div className="max-w-6xl mx-auto relative z-10 ru-soft-glow rounded-3xl py-12 px-6">
             <motion.div initial={{
               opacity: 0,
@@ -66,32 +66,31 @@ const HomePage = () => {
               y: 0
             }} transition={{
               duration: 0.6
-            }} className="text-center space-y-10">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-                Tour smarter,<br />
-                <span className="gradient-text">waste less</span>,<br />
-                play to fans.
+            }} className="text-left space-y-8 max-w-3xl">
+              <h1 className="font-display text-5xl md:text-7xl font-bold leading-tight">
+                Route the tour.<br />
+                <span className="text-marquee">Skip the guesswork.</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto py-4">
-                The tour assistant built for indie artists who want to route better tours, find real venue leads, and stop wasting money on the road.
+              <p className="text-xl md:text-2xl text-paper-muted max-w-2xl py-2">
+                Built for indie artists who want better routes, real venue leads, and fewer wasted miles.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center py-6">
-                <Button 
-                  size="lg" 
-                  onClick={() => navigate('/tour-assistant-v2')} 
-                  className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-8 py-6 h-auto rounded-lg shadow-lg hover:shadow-xl transition text-lg transition-all duration-200 hover:brightness-110 hover:-translate-y-[1px] hover:shadow-lg active:translate-y-0 active:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+              <div className="flex flex-col sm:flex-row gap-6 items-center py-6">
+                <Button
+                  size="lg"
+                  onClick={() => navigate('/tour-assistant-v2')}
+                  className="bg-marquee hover:bg-marquee-hover text-asphalt px-8 py-6 h-auto rounded-lg shadow-lg hover:shadow-xl transition text-lg transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marquee/60 focus-visible:ring-offset-2 focus-visible:ring-offset-asphalt font-semibold"
                 >
                   Try the Tour Assistant
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
 
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   variant="outline"
-                  onClick={() => navigate('/resources')} 
-                  className="border-2 border-orange-500 text-orange-500 bg-transparent px-8 py-6 h-auto rounded-lg hover:bg-orange-500/10 transition text-lg"
+                  onClick={() => navigate('/resources')}
+                  className="border-2 border-routeline text-routeline bg-transparent px-8 py-6 h-auto rounded-lg hover:bg-routeline/10 transition text-lg"
                 >
                   Explore Resources
                   <BookOpen className="ml-2 h-5 w-5" />
@@ -109,14 +108,14 @@ const HomePage = () => {
               duration: 0.6,
               delay: 0.3
             }} className="mt-24">
-              <img className="w-full rounded-2xl shadow-2xl border border-slate-800" alt="Tour routing dashboard showing venue recommendations and route planning" src="https://images.unsplash.com/photo-1529477134574-5289b7ee6635" />
+              <img className="w-full rounded-2xl shadow-2xl border border-steel" alt="Tour routing dashboard showing venue recommendations and route planning" src="https://images.unsplash.com/photo-1529477134574-5289b7ee6635" />
             </motion.div>
           </div>
         </section>
 
         <div className="ru-divider my-4"></div>
 
-        <section className="py-24 px-4 bg-slate-900/50">
+        <section className="py-24 px-4 bg-asphalt-raised/50">
           <div className="max-w-6xl mx-auto">
             <motion.div initial={{
               opacity: 0
@@ -130,7 +129,7 @@ const HomePage = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Everything you need to <span className="gradient-text">tour smarter</span>
               </h2>
-              <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              <p className="text-xl text-paper-muted max-w-2xl mx-auto">
                 Built by touring musicians, for touring musicians. No gatekeepers, just tools that work.
               </p>
             </motion.div>
@@ -149,11 +148,11 @@ const HomePage = () => {
                   duration: 0.5,
                   delay: index * 0.1
                 }} className="ru-card p-8 group">
-                  <div className="bg-gradient-to-br from-orange-500/20 to-pink-500/20 w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <feature.icon className="h-7 w-7 text-orange-400" />
+                  <div className="bg-gradient-to-br from-marquee/20 to-routeline/20 w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <feature.icon className="h-7 w-7 text-marquee" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-slate-400 text-lg">{feature.description}</p>
+                  <p className="text-paper-muted text-lg">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -191,12 +190,12 @@ const HomePage = () => {
                   delay: index * 0.1
                 }} className="ru-card p-8">
                   <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-5 w-5 fill-orange-400 text-orange-400" />)}
+                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-5 w-5 fill-marquee text-marquee" />)}
                   </div>
-                  <p className="text-slate-300 mb-6 italic">"{testimonial.content}"</p>
+                  <p className="text-paper mb-6 italic">"{testimonial.content}"</p>
                   <div>
                     <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-slate-400">{testimonial.role}</p>
+                    <p className="text-sm text-paper-muted">{testimonial.role}</p>
                   </div>
                 </motion.div>
               ))}
@@ -218,7 +217,7 @@ const HomePage = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-8">
                 The touring problem RoadUno solves
               </h2>
-              <div className="text-lg text-slate-300 space-y-6 leading-relaxed">
+              <div className="text-lg text-paper space-y-6 leading-relaxed">
                 <p>Touring as an independent artist is hard. You're juggling routing logistics, cold emailing promoters that may never respond, navigating cities you've never been to, playing to empty rooms and watching your budget evaporate on poorly planned drives.</p>
                 <p>
                   Most booking tools are built for established acts with agents and tour managers. They're expensive, overcomplicated, and assume you already know the venues and promoters in every market. But if you're DIY or just starting to tour regionally, you're stuck piecing together routes from Reddit threads, outdated blogs, and guesswork.
@@ -242,17 +241,17 @@ const HomePage = () => {
             }} transition={{
               duration: 0.6
             }} className="ru-card p-12 ru-soft-glow">
-              <Music className="h-16 w-16 text-orange-400 mx-auto mb-6" />
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <Music className="h-16 w-16 text-marquee mx-auto mb-6" />
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
                 Ready to route your next tour?
               </h2>
-              <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+              <p className="text-xl text-paper-muted mb-10 max-w-2xl mx-auto">
                 Join indie artists who are touring smarter with RoadUno. Get your first routing plan in minutes.
               </p>
-              <Button 
-                size="lg" 
-                onClick={() => navigate('/tour-assistant-v2')} 
-                className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-10 py-6 h-auto rounded-lg shadow-lg hover:shadow-xl transition text-lg"
+              <Button
+                size="lg"
+                onClick={() => navigate('/tour-assistant-v2')}
+                className="bg-marquee hover:bg-marquee-hover text-asphalt px-10 py-6 h-auto rounded-lg shadow-lg hover:shadow-xl transition text-lg font-semibold"
               >
                 Try the Tour Assistant Free
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -260,10 +259,10 @@ const HomePage = () => {
             </motion.div>
           </div>
         </section>
-        
+
         {/* Ad Banner for non-pro users */}
         <div className="max-w-6xl mx-auto px-4 pb-16">
-            <AdBanner />
+          <AdBanner />
         </div>
 
         <Footer />

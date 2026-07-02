@@ -214,7 +214,7 @@ const VenueLeadsPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-asphalt text-paper">
       <Helmet><title>Venue Leads | RoadUno</title></Helmet>
       <Navigation />
 
@@ -222,35 +222,35 @@ const VenueLeadsPage = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <div>
             <h1 className="text-3xl font-bold">Venue Leads</h1>
-            <p className="text-slate-400">Track and manage your booking outreach.</p>
+            <p className="text-paper-muted">Track and manage your booking outreach.</p>
           </div>
           <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
             <DialogTrigger asChild>
-              <Button onClick={() => { setEditingLead(null); setFormData(emptyFormData); }} className="bg-orange-600 hover:bg-orange-700">
+              <Button onClick={() => { setEditingLead(null); setFormData(emptyFormData); }} className="bg-marquee hover:bg-marquee-hover text-asphalt font-semibold">
                 <Plus className="mr-2 h-4 w-4" /> Add Lead
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-slate-900 border-slate-800 text-white">
+            <DialogContent className="bg-asphalt-raised border-steel text-paper">
               <DialogHeader>
                 <DialogTitle>{editingLead ? 'Edit Lead' : 'Add New Lead'}</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSaveLead} className="space-y-4 mt-4">
                 <div className="space-y-2">
                   <Label>Venue Name</Label>
-                  <Input value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="bg-slate-950 border-slate-700" required />
+                  <Input value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="bg-asphalt/50 border-steel" required />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label>City</Label>
-                    <Input value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} className="bg-slate-950 border-slate-700" />
+                    <Input value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} className="bg-asphalt/50 border-steel" />
                   </div>
                   <div className="space-y-2">
                     <Label>Status</Label>
                     <Select value={formData.status} onValueChange={v => setFormData({...formData, status: v})}>
-                      <SelectTrigger className="bg-slate-950 border-slate-700">
+                      <SelectTrigger className="bg-asphalt/50 border-steel">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="bg-slate-900 border-slate-700 text-white">
+                      <SelectContent className="bg-asphalt-raised border-steel text-paper">
                         {['To Contact', 'Contacted', 'Booked', 'Rejected'].map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
                       </SelectContent>
                     </Select>
@@ -258,7 +258,7 @@ const VenueLeadsPage = () => {
                 </div>
                 <div className="space-y-2">
                   <Label>Website</Label>
-                  <Input value={formData.website} onChange={e => setFormData({...formData, website: e.target.value})} className="bg-slate-950 border-slate-700" />
+                  <Input value={formData.website} onChange={e => setFormData({...formData, website: e.target.value})} className="bg-asphalt/50 border-steel" />
                 </div>
                 <div className="space-y-2">
                   <Label>Booking Email</Label>
@@ -267,9 +267,9 @@ const VenueLeadsPage = () => {
                     value={formData.email}
                     onChange={e => setFormData({...formData, email: e.target.value, email_verified: false})}
                     placeholder="booking@venue.com"
-                    className="bg-slate-950 border-slate-700"
+                    className="bg-asphalt/50 border-steel"
                   />
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-paper-muted">
                     {editingLead && editingLead.email && !editingLead.email_verified
                       ? "This was AI-suggested and hasn't been confirmed. Double-check it before sending outreach."
                       : "Leave blank if unknown. AI-suggested emails are not guaranteed to be correct."}
@@ -287,9 +287,9 @@ const VenueLeadsPage = () => {
                 </div>
                 <div className="space-y-2">
                   <Label>Notes</Label>
-                  <Input value={formData.notes} onChange={e => setFormData({...formData, notes: e.target.value})} className="bg-slate-950 border-slate-700" />
+                  <Input value={formData.notes} onChange={e => setFormData({...formData, notes: e.target.value})} className="bg-asphalt/50 border-steel" />
                 </div>
-                <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700">Save Lead</Button>
+                <Button type="submit" className="w-full bg-marquee hover:bg-marquee-hover text-asphalt font-semibold">Save Lead</Button>
               </form>
             </DialogContent>
           </Dialog>
@@ -297,19 +297,19 @@ const VenueLeadsPage = () => {
 
         <div className="flex gap-4 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-3 h-4 w-4 text-slate-500" />
+            <Search className="absolute left-3 top-3 h-4 w-4 text-paper-muted" />
             <Input
               placeholder="Search venues or cities..."
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="pl-9 bg-slate-900 border-slate-800"
+              className="pl-9 bg-asphalt-raised border-steel"
             />
           </div>
           <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-[180px] bg-slate-900 border-slate-800">
+            <SelectTrigger className="w-[180px] bg-asphalt-raised border-steel">
               <SelectValue placeholder="Filter Status" />
             </SelectTrigger>
-            <SelectContent className="bg-slate-900 border-slate-700 text-white">
+            <SelectContent className="bg-asphalt-raised border-steel text-paper">
               <SelectItem value="All">All Statuses</SelectItem>
               {['To Contact', 'Contacted', 'Booked', 'Rejected'].map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
             </SelectContent>
@@ -317,73 +317,73 @@ const VenueLeadsPage = () => {
         </div>
 
         {loading ? (
-          <div className="flex justify-center p-12"><Loader2 className="animate-spin text-orange-500" /></div>
+          <div className="flex justify-center p-12"><Loader2 className="animate-spin text-marquee" /></div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredLeads.map(lead => (
-              <motion.div key={lead.id} layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-slate-900/50 border border-slate-800 p-6 rounded-xl hover:border-orange-500/30 transition-all">
+              <motion.div key={lead.id} layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-asphalt-raised/50 border border-steel p-6 rounded-xl hover:border-marquee/30 transition-all">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="font-bold text-lg">{lead.name}</h3>
                   <span className={`px-2 py-1 rounded text-xs font-medium ${
-                    lead.status === 'Booked' ? 'bg-green-500/20 text-green-400' :
-                    lead.status === 'Rejected' ? 'bg-red-500/20 text-red-400' :
-                    'bg-slate-800 text-slate-300'
+                    lead.status === 'Booked' ? 'bg-routeline/20 text-routeline' :
+                    lead.status === 'Rejected' ? 'bg-taillight/20 text-taillight' :
+                    'bg-steel text-paper-muted'
                   }`}>{lead.status}</span>
                 </div>
 
-                <div className="space-y-2 text-sm text-slate-400 mb-6">
+                <div className="space-y-2 text-sm text-paper-muted mb-6">
                   <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> {lead.city || 'No City'}</div>
-                  {lead.website && <div className="flex items-center gap-2"><Globe className="h-4 w-4" /> <a href={lead.website} target="_blank" rel="noreferrer" className="hover:text-orange-400 truncate max-w-[200px]">{lead.website}</a></div>}
+                  {lead.website && <div className="flex items-center gap-2"><Globe className="h-4 w-4" /> <a href={lead.website} target="_blank" rel="noreferrer" className="hover:text-marquee truncate max-w-[200px]">{lead.website}</a></div>}
                   {lead.email ? (
                     <div className="flex items-center gap-2">
                       <Mail className="h-4 w-4" />
                       <span className="truncate max-w-[180px]">{lead.email}</span>
                       {lead.email_verified ? (
-                        <span title="Confirmed correct" className="flex items-center gap-1 text-green-400 text-xs"><ShieldCheck className="h-3.5 w-3.5" /> Verified</span>
+                        <span title="Confirmed correct" className="flex items-center gap-1 text-routeline text-xs"><ShieldCheck className="h-3.5 w-3.5" /> Verified</span>
                       ) : (
-                        <span title="AI-suggested, not confirmed" className="flex items-center gap-1 text-amber-400 text-xs"><ShieldQuestion className="h-3.5 w-3.5" /> Unverified</span>
+                        <span title="AI-suggested, not confirmed" className="flex items-center gap-1 text-marquee text-xs"><ShieldQuestion className="h-3.5 w-3.5" /> Unverified</span>
                       )}
                     </div>
                   ) : (
-                    <div className="flex items-center gap-2 text-slate-600 italic">
+                    <div className="flex items-center gap-2 text-paper-muted italic">
                       <Mail className="h-4 w-4" /> No email on file
                     </div>
                   )}
-                  {lead.notes && <p className="italic border-l-2 border-slate-700 pl-2 mt-2">{lead.notes}</p>}
+                  {lead.notes && <p className="italic border-l-2 border-steel pl-2 mt-2">{lead.notes}</p>}
                 </div>
 
-                <div className="flex justify-between items-center gap-2 pt-4 border-t border-slate-800">
+                <div className="flex justify-between items-center gap-2 pt-4 border-t border-steel">
                   <Button
                     variant="outline"
                     size="sm"
                     disabled={!lead.email}
                     onClick={() => openOutreach(lead)}
-                    className="border-orange-600/50 text-orange-400 hover:bg-orange-950/50 disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="border-marquee/50 text-marquee hover:bg-marquee/10 disabled:opacity-40 disabled:cursor-not-allowed"
                     title={!lead.email ? "Add an email to this lead first" : "Draft an outreach email"}
                   >
                     <Sparkles className="mr-1.5 h-3.5 w-3.5" /> Draft Outreach
                   </Button>
                   <div className="flex gap-1">
                     <Button variant="ghost" size="sm" onClick={() => openEdit(lead)}><Edit2 className="h-4 w-4" /></Button>
-                    <Button variant="ghost" size="sm" onClick={() => handleDelete(lead.id)} className="text-red-400 hover:text-red-300 hover:bg-red-900/20"><Trash2 className="h-4 w-4" /></Button>
+                    <Button variant="ghost" size="sm" onClick={() => handleDelete(lead.id)} className="text-taillight hover:text-taillight-hover hover:bg-taillight/10"><Trash2 className="h-4 w-4" /></Button>
                   </div>
                 </div>
               </motion.div>
             ))}
-            {filteredLeads.length === 0 && <p className="col-span-full text-center text-slate-500 py-12">No leads found.</p>}
+            {filteredLeads.length === 0 && <p className="col-span-full text-center text-paper-muted py-12">No leads found.</p>}
           </div>
         )}
       </main>
 
       {/* Outreach drafting modal */}
       <Dialog open={outreachOpen} onOpenChange={setOutreachOpen}>
-        <DialogContent className="bg-slate-900 border-slate-800 text-white max-w-lg">
+        <DialogContent className="bg-asphalt-raised border-steel text-paper max-w-lg">
           <DialogHeader>
             <DialogTitle>Draft Outreach {outreachLead ? `\u2013 ${outreachLead.name}` : ''}</DialogTitle>
           </DialogHeader>
 
           {outreachLead && !outreachLead.email_verified && (
-            <p className="text-xs text-amber-400 bg-amber-950/30 border border-amber-900/50 rounded p-2">
+            <p className="text-xs text-marquee bg-marquee/10 border border-marquee/30 rounded p-2">
               This venue's email is unverified. Double check {outreachLead.email} is correct before sending anything.
             </p>
           )}
@@ -392,38 +392,38 @@ const VenueLeadsPage = () => {
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1">
                 <Label className="text-xs">Artist Name</Label>
-                <Input value={artistInfo.name} onChange={e => updateArtistInfo('name', e.target.value)} className="bg-slate-950 border-slate-700" placeholder="Lowlight Radio" />
+                <Input value={artistInfo.name} onChange={e => updateArtistInfo('name', e.target.value)} className="bg-asphalt/50 border-steel" placeholder="Lowlight Radio" />
               </div>
               <div className="space-y-1">
                 <Label className="text-xs">Genre</Label>
-                <Input value={artistInfo.genre} onChange={e => updateArtistInfo('genre', e.target.value)} className="bg-slate-950 border-slate-700" placeholder="dream-pop trio" />
+                <Input value={artistInfo.genre} onChange={e => updateArtistInfo('genre', e.target.value)} className="bg-asphalt/50 border-steel" placeholder="dream-pop trio" />
               </div>
             </div>
             <div className="space-y-1">
               <Label className="text-xs">Proof Point</Label>
-              <Input value={artistInfo.proofPoint} onChange={e => updateArtistInfo('proofPoint', e.target.value)} className="bg-slate-950 border-slate-700" placeholder="80-120 avg draw, last Southeast run" />
+              <Input value={artistInfo.proofPoint} onChange={e => updateArtistInfo('proofPoint', e.target.value)} className="bg-asphalt/50 border-steel" placeholder="80-120 avg draw, last Southeast run" />
             </div>
-            <p className="text-xs text-slate-500">Saved in this browser so you don't have to retype it each time.</p>
+            <p className="text-xs text-paper-muted">Saved in this browser so you don't have to retype it each time.</p>
           </div>
 
-          <Button onClick={handleGenerateDraft} disabled={outreachLoading} className="w-full bg-orange-600 hover:bg-orange-700 mt-2">
+          <Button onClick={handleGenerateDraft} disabled={outreachLoading} className="w-full bg-marquee hover:bg-marquee-hover text-asphalt font-semibold mt-2">
             {outreachLoading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Drafting...</> : <><Sparkles className="mr-2 h-4 w-4" /> Generate Draft</>}
           </Button>
 
-          {outreachError && <p className="text-sm text-red-400">{outreachError}</p>}
+          {outreachError && <p className="text-sm text-taillight">{outreachError}</p>}
 
           {outreachDraft && (
-            <div className="space-y-3 mt-4 border-t border-slate-800 pt-4">
+            <div className="space-y-3 mt-4 border-t border-steel pt-4">
               <div className="space-y-1">
                 <Label className="text-xs">Subject</Label>
-                <Input value={outreachDraft.subject} onChange={e => setOutreachDraft({...outreachDraft, subject: e.target.value})} className="bg-slate-950 border-slate-700" />
+                <Input value={outreachDraft.subject} onChange={e => setOutreachDraft({...outreachDraft, subject: e.target.value})} className="bg-asphalt/50 border-steel" />
               </div>
               <div className="space-y-1">
                 <Label className="text-xs">Body</Label>
-                <Textarea value={outreachDraft.body} onChange={e => setOutreachDraft({...outreachDraft, body: e.target.value})} className="bg-slate-950 border-slate-700 min-h-[180px]" />
+                <Textarea value={outreachDraft.body} onChange={e => setOutreachDraft({...outreachDraft, body: e.target.value})} className="bg-asphalt/50 border-steel min-h-[180px]" />
               </div>
-              <p className="text-xs text-slate-500">Review before sending, this is a draft, not sent automatically.</p>
-              <Button onClick={handleCopy} variant="outline" className="w-full border-slate-700">
+              <p className="text-xs text-paper-muted">Review before sending, this is a draft, not sent automatically.</p>
+              <Button onClick={handleCopy} variant="outline" className="w-full border-steel">
                 {copied ? <><Check className="mr-2 h-4 w-4" /> Copied</> : <><Copy className="mr-2 h-4 w-4" /> Copy Subject + Body</>}
               </Button>
             </div>
