@@ -4,3 +4,4 @@ dist/
 .env
 plugins/
 .DS_Store
+supabase/.temp/
