@@ -76,24 +76,8 @@ src/
 - A Supabase project (for auth and database)
 - A Google Cloud API key (for maps and places features)
 
-### Installation
 
-```bash
-git clone https://github.com/KrisCagle/RoadUnoWebApp.git
-cd RoadUnoWebApp
-npm install
-```
 
-### Environment Variables
-
-Copy `.env.example` to `.env.local` and fill in your values:
-
-```env
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-VITE_GOOGLE_API_KEY=your_google_api_key
-VITE_AI_PROXY_ENDPOINT=your_ai_proxy_endpoint
-```
 
 ## Claude Skills
 
