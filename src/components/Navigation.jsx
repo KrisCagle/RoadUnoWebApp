@@ -41,6 +41,7 @@ const Navigation = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             <button onClick={() => navigate('/tour-assistant-v2')} className="text-paper-muted hover:text-paper font-medium text-sm lg:text-base">Tour Assistant</button>
+            <button onClick={() => navigate('/epk-builder')} className="text-paper-muted hover:text-paper font-medium text-sm lg:text-base">EPK Builder</button>
             <button onClick={() => navigate('/resources')} className="text-paper-muted hover:text-paper font-medium text-sm lg:text-base">Resources</button>
             <button onClick={() => navigate('/tools')} className="text-paper-muted hover:text-paper font-medium text-sm lg:text-base">Tools</button>
             
@@ -113,6 +114,7 @@ const Navigation = () => {
         {mobileMenuOpen && (
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="md:hidden mt-4 pb-4 space-y-4 border-t border-steel pt-4">
             <button onClick={() => { navigate('/tour-assistant-v2'); setMobileMenuOpen(false); }} className="block w-full text-left text-lg py-2 text-paper-muted">Tour Assistant</button>
+            <button onClick={() => { navigate('/epk-builder'); setMobileMenuOpen(false); }} className="block w-full text-left text-lg py-2 text-paper-muted">EPK</button>
             <button onClick={() => { navigate('/resources'); setMobileMenuOpen(false); }} className="block w-full text-left text-lg py-2 text-paper-muted">Resources</button>
             <button onClick={() => { navigate('/tools'); setMobileMenuOpen(false); }} className="block w-full text-left text-lg py-2 text-paper-muted">Tools</button>
             

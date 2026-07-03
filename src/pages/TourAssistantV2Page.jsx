@@ -513,7 +513,7 @@ const TourAssistantV2Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-asphalt text-paper font-sans selection:bg-marquee/30">
+    <div className="min-h-screen text-paper font-sans selection:bg-marquee/30">
       <Helmet><title>AI Tour Assistant V2 | RoadUno</title></Helmet>
       <Navigation />
       <main className="relative overflow-hidden pt-24 pb-20 min-h-[calc(100vh-80px)]">

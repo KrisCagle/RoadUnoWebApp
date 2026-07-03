@@ -39,7 +39,7 @@ const ToolsPage = () => {
         <meta name="description" content="Free tools for indie musicians, including calculators for show profitability, tour budgeting, and more. Make smarter decisions with RoadUno." />
       </Helmet>
 
-      <div className="min-h-screen bg-slate-950">
+      <div className="min-h-screen text-paper">
         <Navigation />
 
         <section className="pt-32 pb-20 px-4">
@@ -53,7 +53,7 @@ const ToolsPage = () => {
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 Artist <span className="gradient-text">Tools</span>
               </h1>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              <p className="text-xl text-paper-muted max-w-3xl mx-auto">
                 Smart calculators and utilities to help you plan smarter, budget better, and tour with confidence.
               </p>
             </motion.div>
@@ -65,20 +65,20 @@ const ToolsPage = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden hover:border-pink-500/50 transition-all group cursor-pointer"
+                  className="bg-asphalt-raised/50 backdrop-blur-sm border border-steel rounded-xl overflow-hidden hover:border-marquee/50 transition-all group cursor-pointer"
                   onClick={() => navigate(`/tools/${tool.slug}`)}
                 >
-                  <div className="aspect-video bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center">
-                    <tool.icon className="h-16 w-16 text-orange-400 group-hover:scale-110 transition-transform" />
+                  <div className="aspect-video bg-gradient-to-br from-marquee/20 to-routeline/20 flex items-center justify-center">
+                    <tool.icon className="h-16 w-16 text-marquee group-hover:scale-110 transition-transform" />
                   </div>
                   <div className="p-6">
-                    <h2 className="text-2xl font-bold mb-3 group-hover:text-pink-400 transition-colors">
+                    <h2 className="text-2xl font-bold mb-3 group-hover:text-marquee transition-colors">
                       {tool.title}
                     </h2>
-                    <p className="text-slate-400 mb-4">{tool.description}</p>
+                    <p className="text-paper-muted mb-4">{tool.description}</p>
                     <Button
                       variant="ghost"
-                      className="text-orange-400 hover:text-orange-300 p-0"
+                      className="text-marquee hover:text-marquee-hover p-0"
                     >
                       Open Tool
                       <ArrowRight className="ml-2 h-4 w-4" />

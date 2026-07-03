@@ -4,6 +4,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { useSubscription } from '@/hooks/useSubscription';
 import { loadAdSense, removeAllAdElements } from '@/services/adsense';
+import EPKBuilderPage from '@/pages/EPKBuilderPage';
+import EPKPage from '@/pages/EPKPage';
 
 import HomePage from '@/pages/HomePage';
 import TourAssistantPage from '@/pages/TourAssistantPage';
@@ -104,6 +106,9 @@ function App() {
         <Route path="/billing/cancelled" element={<BillingCancelledPage />} />
         <Route path="/check-email" element={<CheckEmailPage />} />
         <Route path="/auth/callback" element={<AuthCallbackPage />} />
+        <Route path="/epk-builder" element={<EPKBuilderPage />} />
+        <Route path="/epk/:slug" element={<EPKPage />} />
+        
         
         {/* Artist Protected Routes */}
         <Route path="/dashboard" element={

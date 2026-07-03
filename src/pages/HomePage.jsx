@@ -43,7 +43,7 @@ const HomePage = () => {
     content: 'The budget clustering saved me hundreds on gas. This is a game-changer for small tours.',
     rating: 5
   }];
-
+  
   return (
     <>
       <Helmet>
@@ -51,12 +51,12 @@ const HomePage = () => {
         <meta name="description" content="RoadUno is an AI tour assistant for independent musicians. Get smart tour routes, venue leads, booking contacts, and practical touring resources, all designed to help you tour smarter and waste less." />
       </Helmet>
 
-      <div className="min-h-screen bg-asphalt">
+      <div className="min-h-screen">
         <Navigation />
 
         <section className="relative overflow-hidden pt-32 pb-28 px-4">
           <div className="absolute inset-0 bg-gradient-to-br from-marquee/10 via-routeline/10 to-transparent" />
-
+          
           <div className="max-w-6xl mx-auto relative z-10 ru-soft-glow rounded-3xl py-12 px-6">
             <motion.div initial={{
               opacity: 0,
@@ -77,19 +77,19 @@ const HomePage = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 items-center py-6">
-                <Button
-                  size="lg"
-                  onClick={() => navigate('/tour-assistant-v2')}
+                <Button 
+                  size="lg" 
+                  onClick={() => navigate('/tour-assistant-v2')} 
                   className="bg-marquee hover:bg-marquee-hover text-asphalt px-8 py-6 h-auto rounded-lg shadow-lg hover:shadow-xl transition text-lg transition-all duration-200 hover:-translate-y-[1px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marquee/60 focus-visible:ring-offset-2 focus-visible:ring-offset-asphalt font-semibold"
                 >
                   Try the Tour Assistant
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
 
-                <Button
-                  size="lg"
+                <Button 
+                  size="lg" 
                   variant="outline"
-                  onClick={() => navigate('/resources')}
+                  onClick={() => navigate('/resources')} 
                   className="border-2 border-routeline text-routeline bg-transparent px-8 py-6 h-auto rounded-lg hover:bg-routeline/10 transition text-lg"
                 >
                   Explore Resources
@@ -248,9 +248,9 @@ const HomePage = () => {
               <p className="text-xl text-paper-muted mb-10 max-w-2xl mx-auto">
                 Join indie artists who are touring smarter with RoadUno. Get your first routing plan in minutes.
               </p>
-              <Button
-                size="lg"
-                onClick={() => navigate('/tour-assistant-v2')}
+              <Button 
+                size="lg" 
+                onClick={() => navigate('/tour-assistant-v2')} 
                 className="bg-marquee hover:bg-marquee-hover text-asphalt px-10 py-6 h-auto rounded-lg shadow-lg hover:shadow-xl transition text-lg font-semibold"
               >
                 Try the Tour Assistant Free
@@ -259,10 +259,10 @@ const HomePage = () => {
             </motion.div>
           </div>
         </section>
-
+        
         {/* Ad Banner for non-pro users */}
         <div className="max-w-6xl mx-auto px-4 pb-16">
-          <AdBanner />
+            <AdBanner />
         </div>
 
         <Footer />

@@ -208,13 +208,13 @@ const VenueLeadsPage = () => {
 
   const filteredLeads = leads.filter(lead => {
     const matchesSearch = lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          lead.city.toLowerCase().includes(searchTerm.toLowerCase());
+      lead.city.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = statusFilter === 'All' || lead.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
 
   return (
-    <div className="min-h-screen bg-asphalt text-paper">
+    <div className="min-h-screen text-paper">
       <Helmet><title>Venue Leads | RoadUno</title></Helmet>
       <Navigation />
 
@@ -237,16 +237,16 @@ const VenueLeadsPage = () => {
               <form onSubmit={handleSaveLead} className="space-y-4 mt-4">
                 <div className="space-y-2">
                   <Label>Venue Name</Label>
-                  <Input value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="bg-asphalt/50 border-steel" required />
+                  <Input value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} className="bg-asphalt/50 border-steel" required />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label>City</Label>
-                    <Input value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} className="bg-asphalt/50 border-steel" />
+                    <Input value={formData.city} onChange={e => setFormData({ ...formData, city: e.target.value })} className="bg-asphalt/50 border-steel" />
                   </div>
                   <div className="space-y-2">
                     <Label>Status</Label>
-                    <Select value={formData.status} onValueChange={v => setFormData({...formData, status: v})}>
+                    <Select value={formData.status} onValueChange={v => setFormData({ ...formData, status: v })}>
                       <SelectTrigger className="bg-asphalt/50 border-steel">
                         <SelectValue />
                       </SelectTrigger>
@@ -258,14 +258,14 @@ const VenueLeadsPage = () => {
                 </div>
                 <div className="space-y-2">
                   <Label>Website</Label>
-                  <Input value={formData.website} onChange={e => setFormData({...formData, website: e.target.value})} className="bg-asphalt/50 border-steel" />
+                  <Input value={formData.website} onChange={e => setFormData({ ...formData, website: e.target.value })} className="bg-asphalt/50 border-steel" />
                 </div>
                 <div className="space-y-2">
                   <Label>Booking Email</Label>
                   <Input
                     type="email"
                     value={formData.email}
-                    onChange={e => setFormData({...formData, email: e.target.value, email_verified: false})}
+                    onChange={e => setFormData({ ...formData, email: e.target.value, email_verified: false })}
                     placeholder="booking@venue.com"
                     className="bg-asphalt/50 border-steel"
                   />
@@ -279,7 +279,7 @@ const VenueLeadsPage = () => {
                   <Checkbox
                     id="email_verified"
                     checked={formData.email_verified}
-                    onCheckedChange={checked => setFormData({...formData, email_verified: checked === true})}
+                    onCheckedChange={checked => setFormData({ ...formData, email_verified: checked === true })}
                   />
                   <Label htmlFor="email_verified" className="text-sm font-normal cursor-pointer">
                     I've confirmed this email is correct
@@ -287,7 +287,7 @@ const VenueLeadsPage = () => {
                 </div>
                 <div className="space-y-2">
                   <Label>Notes</Label>
-                  <Input value={formData.notes} onChange={e => setFormData({...formData, notes: e.target.value})} className="bg-asphalt/50 border-steel" />
+                  <Input value={formData.notes} onChange={e => setFormData({ ...formData, notes: e.target.value })} className="bg-asphalt/50 border-steel" />
                 </div>
                 <Button type="submit" className="w-full bg-marquee hover:bg-marquee-hover text-asphalt font-semibold">Save Lead</Button>
               </form>
@@ -324,11 +324,10 @@ const VenueLeadsPage = () => {
               <motion.div key={lead.id} layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-asphalt-raised/50 border border-steel p-6 rounded-xl hover:border-marquee/30 transition-all">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="font-bold text-lg">{lead.name}</h3>
-                  <span className={`px-2 py-1 rounded text-xs font-medium ${
-                    lead.status === 'Booked' ? 'bg-routeline/20 text-routeline' :
-                    lead.status === 'Rejected' ? 'bg-taillight/20 text-taillight' :
-                    'bg-steel text-paper-muted'
-                  }`}>{lead.status}</span>
+                  <span className={`px-2 py-1 rounded text-xs font-medium ${lead.status === 'Booked' ? 'bg-routeline/20 text-routeline' :
+                      lead.status === 'Rejected' ? 'bg-taillight/20 text-taillight' :
+                        'bg-steel text-paper-muted'
+                    }`}>{lead.status}</span>
                 </div>
 
                 <div className="space-y-2 text-sm text-paper-muted mb-6">
@@ -416,11 +415,11 @@ const VenueLeadsPage = () => {
             <div className="space-y-3 mt-4 border-t border-steel pt-4">
               <div className="space-y-1">
                 <Label className="text-xs">Subject</Label>
-                <Input value={outreachDraft.subject} onChange={e => setOutreachDraft({...outreachDraft, subject: e.target.value})} className="bg-asphalt/50 border-steel" />
+                <Input value={outreachDraft.subject} onChange={e => setOutreachDraft({ ...outreachDraft, subject: e.target.value })} className="bg-asphalt/50 border-steel" />
               </div>
               <div className="space-y-1">
                 <Label className="text-xs">Body</Label>
-                <Textarea value={outreachDraft.body} onChange={e => setOutreachDraft({...outreachDraft, body: e.target.value})} className="bg-asphalt/50 border-steel min-h-[180px]" />
+                <Textarea value={outreachDraft.body} onChange={e => setOutreachDraft({ ...outreachDraft, body: e.target.value })} className="bg-asphalt/50 border-steel min-h-[180px]" />
               </div>
               <p className="text-xs text-paper-muted">Review before sending, this is a draft, not sent automatically.</p>
               <Button onClick={handleCopy} variant="outline" className="w-full border-steel">

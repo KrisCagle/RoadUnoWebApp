@@ -6,17 +6,13 @@
   body {
     @apply bg-asphalt text-paper;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-image: radial-gradient(1200px circle at 50% 0%, rgba(232,163,61,0.07), transparent 60%);
+    background-repeat: no-repeat;
   }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  
+  h1, h2, h3, h4, h5, h6 {
     @apply font-display font-semibold;
   }
-
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -43,14 +39,13 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-
+    
     --ru-card: rgba(28, 32, 37, 0.75);
-    --ru-border: rgba(237, 232, 221, 0.08);
-    --ru-border-hover: rgba(232, 163, 61, 0.35);
-    --ru-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    --ru-shadow-hover: 0 16px 44px rgba(0, 0, 0, 0.45);
+    --ru-border: rgba(237,232,221,0.08);
+    --ru-border-hover: rgba(232,163,61,0.35);
+    --ru-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --ru-shadow-hover: 0 16px 44px rgba(0,0,0,0.45);
   }
-
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -96,7 +91,7 @@
   .gradient-text {
     @apply bg-gradient-to-r from-marquee to-routeline bg-clip-text text-transparent;
   }
-
+  
   .gradient-border {
     @apply relative before:absolute before:inset-0 before:rounded-lg before:p-[2px] before:bg-gradient-to-r before:from-marquee before:to-routeline before:-z-10;
   }
@@ -104,7 +99,7 @@
 
 .ru-soft-glow {
   background:
-    radial-gradient(700px circle at 50% 18%, rgba(232, 163, 61, 0.10), transparent 55%);
+    radial-gradient(700px circle at 50% 18%, rgba(232,163,61,0.10), transparent 55%);
 }
 
 .ru-card {
@@ -125,20 +120,23 @@
 .ru-divider {
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, transparent, rgba(232, 163, 61, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(232,163,61,0.35), transparent);
   opacity: .9;
 }
 
 .ru-route-divider {
   height: 0;
   width: 100%;
-  border-top: 1px dashed rgba(237, 232, 221, 0.15);
+  border-top: 1px dashed rgba(237,232,221,0.15);
 }
 
-h1 {
-  letter-spacing: -0.01em;
-}
+h1 { letter-spacing: -0.01em; }
+h2 { letter-spacing: -0.01em; }
 
-h2 {
-  letter-spacing: -0.01em;
+/* EPK print/PDF export: content margins only; hide/show is handled via
+   Tailwind's hidden / print:block / print:hidden utilities in the component,
+   not visibility tricks (which leave hidden elements taking up layout space
+   and cause blank extra pages). */
+@page {
+  margin: 15mm;
 }

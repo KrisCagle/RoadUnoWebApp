@@ -1,6 +1,7 @@
 ## Pages
 - [- Financial Overview](/tourroutedetail): No description available
 - [- RoadUno Resources](/resourcedetail): No description available
+- [| EPK](/epk): No description available
 - [Account Security - RoadUno](/accountsecurity): No description available
 - [Artist Dashboard - RoadUno](/dashboard): Your central hub for tour management, analytics, and insights.
 - [Artist Profile - RoadUno](/artistprofile): No description available
@@ -8,6 +9,7 @@
 - [Artist Tools - RoadUno](/tools): Free tools for indie musicians, including calculators for show profitability, tour budgeting, and more. Make smarter decisions with RoadUno.
 - [Break Even Calculator - RoadUno Tools](/breakevencalculator): Calculate your show
 - [Contact Us - RoadUno](/contact): Get in touch with the RoadUno team. We
+- [EPK Builder | RoadUno](/epkbuilder): No description available
 - [Merch Profit Calculator - RoadUno](/merchprofitcalculator): Forecast your merchandise revenue and profit with RoadUno
 - [Payment Cancelled - RoadUno](/billingcancelled): No description available
 - [Payment Successful - RoadUno](/billingsuccess): No description available
