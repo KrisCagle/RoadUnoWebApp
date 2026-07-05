@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Loader2, Mail, Copy, Check, FileText, PlayCircle, Music2, Cloud, Youtube, X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { Loader2, Mail, Copy, Check, FileText, PlayCircle, Music2, Cloud, Youtube, X, ChevronLeft, ChevronRight, ExternalLink, Phone, Facebook, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/customSupabaseClient';
 
@@ -155,7 +155,37 @@ const EPKPage = () => {
 
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-1">{epk.artist_name}</h1>
-          {epk.genre && <p className="text-marquee text-lg mb-8">{epk.genre}</p>}
+          {epk.genre && <p className="text-marquee text-lg mb-4">{epk.genre}</p>}
+
+          {(epk.contact_email || epk.phone_number || epk.facebook_url || epk.instagram_url) && (
+            <div className="flex flex-wrap items-center gap-4 mb-8 text-sm">
+              {epk.contact_email && (
+                <div className="flex items-center gap-1.5">
+                  <a href={`mailto:${epk.contact_email}`} className="flex items-center gap-1.5 text-paper-muted hover:text-marquee transition-colors">
+                    <Mail className="h-4 w-4" /> {epk.contact_email}
+                  </a>
+                  <Button size="sm" variant="ghost" className="h-6 w-6 p-0" onClick={handleCopyEmail}>
+                    {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                  </Button>
+                </div>
+              )}
+              {epk.phone_number && (
+                <a href={`tel:${epk.phone_number}`} className="flex items-center gap-1.5 text-paper-muted hover:text-marquee transition-colors">
+                  <Phone className="h-4 w-4" /> {epk.phone_number}
+                </a>
+              )}
+              {epk.facebook_url && (
+                <a href={epk.facebook_url} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-paper-muted hover:text-marquee transition-colors">
+                  <Facebook className="h-4 w-4" />
+                </a>
+              )}
+              {epk.instagram_url && (
+                <a href={epk.instagram_url} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-paper-muted hover:text-marquee transition-colors">
+                  <Instagram className="h-4 w-4" />
+                </a>
+              )}
+            </div>
+          )}
 
           {epk.bio && (
             <section className="mb-10">
@@ -235,20 +265,6 @@ const EPKPage = () => {
               >
                 <FileText className="h-4 w-4" /> Stage Plot
               </a>
-            </section>
-          )}
-
-          {epk.contact_email && (
-            <section className="pt-6 border-t border-steel">
-              <h2 className="font-display text-sm uppercase tracking-wide text-paper-muted mb-3">Contact</h2>
-              <div className="flex items-center gap-2">
-                <a href={`mailto:${epk.contact_email}`} className="flex items-center gap-2 text-paper hover:text-marquee transition-colors">
-                  <Mail className="h-4 w-4" /> {epk.contact_email}
-                </a>
-                <Button size="sm" variant="ghost" onClick={handleCopyEmail}>
-                  {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-                </Button>
-              </div>
             </section>
           )}
         </motion.div>

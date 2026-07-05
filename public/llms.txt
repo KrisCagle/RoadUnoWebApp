@@ -17,6 +17,7 @@
 - [Privacy & Data - RoadUno](/privacyanddata): Understand how RoadUno protects your data, your rights to privacy, and how to manage your information.
 - [Privacy Policy - RoadUno](/privacypolicy): Read the Privacy Policy for RoadUno to understand how we collect, use, and protect your data.
 - [Recent Activity | RoadUno](/recentactivity): No description available
+- [Reset Password | RoadUno](/resetpassword): No description available
 - [RoadUno - Tour Smarter, Waste Less, Play to Fans](/home): RoadUno is an AI tour assistant for independent musicians. Get smart tour routes, venue leads, booking contacts, and practical touring resources, all designed to help you tour smarter and waste less.
 - [Route Templates | RoadUno](/routetemplates): No description available
 - [Routing Preferences | RoadUno](/artistsettings): No description available

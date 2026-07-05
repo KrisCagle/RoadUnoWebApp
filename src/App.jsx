@@ -6,7 +6,7 @@ import { useSubscription } from '@/hooks/useSubscription';
 import { loadAdSense, removeAllAdElements } from '@/services/adsense';
 import EPKBuilderPage from '@/pages/EPKBuilderPage';
 import EPKPage from '@/pages/EPKPage';
-
+import ResetPasswordPage from '@/pages/ResetPasswordPage';
 import HomePage from '@/pages/HomePage';
 import TourAssistantPage from '@/pages/TourAssistantPage';
 import TourAssistantV2Page from '@/pages/TourAssistantV2Page';
@@ -108,7 +108,7 @@ function App() {
         <Route path="/auth/callback" element={<AuthCallbackPage />} />
         <Route path="/epk-builder" element={<EPKBuilderPage />} />
         <Route path="/epk/:slug" element={<EPKPage />} />
-        
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
         
         {/* Artist Protected Routes */}
         <Route path="/dashboard" element={
